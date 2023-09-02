@@ -1,3 +1,4 @@
+import Footer from './components/Header/Footer'
 import Header from './components/Header/Header'
 import SubHeader from './components/Header/SubHeader'
 import TitleHeader from './components/Header/TitleHeader'
@@ -14,11 +15,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} bg-[#FDFCF0]`}>
         <TitleHeader />
         <SubHeader />
         <Header />
         {children}
+        <Footer></Footer>
       </body>
     </html>
   )

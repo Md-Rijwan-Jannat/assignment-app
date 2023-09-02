@@ -3,10 +3,7 @@
 @tailwind utilities;
 
 
-.swiper-button-prev{
-    background-color: rgb(94, 92, 92);
-}
-
-.swiper-button-next{
-    background-color: rgb(94, 92, 92);
+:root {
+    --swiper-theme-color: rgb(82, 79, 79);
+    --swiper-navigation-size: 30px;
 }

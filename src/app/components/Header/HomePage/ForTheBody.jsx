@@ -23,10 +23,6 @@ const ForTheBody = () => {
                 description2='Thoroughly cleanse and exfoliates skin'
                 description3='Offers a through and enlivening cleanse '
             ></Slider>
-
-            <div>
-               
-            </div>
         </>
     );
 };

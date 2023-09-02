@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import React from 'react';
 import { BsArrowRightShort } from 'react-icons/bs';
-import banner from '../../../../../public/banner-20-2.jpg'
+import banner from '../../../../../public/Banner.jpg'
 import Section from '../Section';
 
 const Banner = () => {
