@@ -3,7 +3,7 @@ import { BsArrowRightShort } from 'react-icons/bs';
 
 const Section2 = ({ p, h2, p2, button }) => {
     return (
-        <div className='px-2 flex w-10/12 xl:w-1/4 ml-10 md:ml-16 mr-20'>
+        <div className='px-2 flex w-10/12 xl:w-1/4 ml-2 md:ml-16 mr-20'>
         <div className='text-start text-[#7B7B76]'>
             <p className='font-[1rem]'>{p}</p>
             <h2 className="my-[20px] text-[1.875rem] font-semibold">

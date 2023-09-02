@@ -7,8 +7,8 @@ import { BsArrowRightShort } from 'react-icons/bs';
 
 const Drops = () => {
     return (
-        <div className='lg:flex gap-10 mt-[70px] md:mt-[100px]  xl:mt-[150px]'>
-            <div className='w-full mt-[50px] lg:mt-0 relative md:ml-16'>
+        <div className='lg:flex lg:gap-10 mt-[70px] md:mt-[100px] xl:mt-[150px]'>
+            <div className='mt-[50px] lg:mt-0 relative grid justify-start w-full'>
                 <Image
                     className='lg:w-full lg:h-full'
                     src={subBanner3}
@@ -17,14 +17,14 @@ const Drops = () => {
                     height={400}
                 />
                 <Image
-                    className='absolute right-0 -bottom-10 w-[100px] md:w-[150px] xl:w-[300px]'
+                    className='absolute md:right-[190px] lg:right-[110px] -bottom-10 w-[100px] md:w-[150px] xl:w-[200px]'
                     src={subBanner2}
                     alt="Image 1"
                     width={800}
                     height={400}
                 />
             </div>
-            <div className='px-2 flex w-10/12 xl:w-1/4 mr-10 md:mr-16 ml-16 mt-10'>
+            <div className='px-2 flex w-10/12 xl:w-1/4 ml-2 md:mr-16 mt-10'>
                 <div className='text-start text-[#7B7B76]'>
                     <p className='font-[1rem]'> Post-Poo Drops has returned</p>
                     <h2 className="my-[20px] text-[1.875rem] font-semibold">

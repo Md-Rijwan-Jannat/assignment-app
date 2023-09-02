@@ -12,7 +12,7 @@ import Link from "next/link";
 const Slider2 = ({ p, h2, p2, button, image1, image2, image4, image5, image6, title1, title2, title4, title5, title6, description1, description2, description4, description5, description6 }) => {
     return (
         <>
-            <div className='block xl:hidden xl:w-[500px] md:w-full md:flex flex-col md:flex-row lg:flex lg:flex-row md:justify-between md:items-center xl:flex-col text-[#7B7B76] pt-[150px] pb-5'>
+            <div className='block xl:hidden xl:w-[500px] md:md:flex flex-col md:flex-row lg:flex lg:flex-row md:justify-between md:items-center xl:flex-col text-[#7B7B76] pt-[150px] pb-5'>
                 <div className='text-start ml-5 md:w-1/2 '>
                     <p className='font-[1rem]'>{p}</p>
                     <h2 className="my-[20px] text-[1.875rem] font-semibold">
@@ -22,7 +22,7 @@ const Slider2 = ({ p, h2, p2, button, image1, image2, image4, image5, image6, ti
                 <div className='text-start ml-5  md:w-1/2'>
                     <p className='font-[1rem]'>{p2} </p>
                     <button type="button"
-                        className="mt-[20px] border rounded-none border-black lowercase h-[50px] w-[300px] text-sm font-medium leading-normal text-black transition duration-150 ease-in-out hover:border-white hover:bg-black  hover:text-white focus:border-black  focus:outline-none focus:ring-0 active:bg-white active:border-white active:text-white flex items-center justify-between px-5"
+                        className="mt-[20px] border rounded-none border-black lowercase h-[50px] w-[350px] text-sm font-medium leading-normal text-black transition duration-150 ease-in-out hover:border-white hover:bg-black  hover:text-white focus:border-black  focus:outline-none focus:ring-0 active:bg-white active:border-white active:text-white flex items-center justify-between px-5"
                         data-te-ripple-init data-te-ripple-color="light">
                         {button} <BsArrowRightShort className='text-xl'></BsArrowRightShort>
                     </button>
@@ -38,18 +38,18 @@ const Slider2 = ({ p, h2, p2, button, image1, image2, image4, image5, image6, ti
                 }}
                 breakpoints={{
                     700: {
-                        slidesPerView: 3,
-                        slidesPerGroup: 3,
+                        slidesPerView: 2,
+                        slidesPerGroup: 2,
                     },
                 }}
                 scrollbar={true}
                 navigation={true}
                 modules={[Keyboard, Scrollbar, Navigation, Pagination]}
-                className="mySwiper w-full flex items-center justify-center xl:mt-[100px] h-[400px] px-5 md:px-20"
+                className="mySwiper flex items-center justify-center xl:mt-[100px] h-[400px] px-5 md:px-20"
             >
                 <SwiperSlide>
-                    <div className="hidden md:hidden lg:hidden xl:block w-full flex flex-col items-center justify-center">
-                        <div className=' absolute top-0 justify-center w-full flex flex-col text-[#7B7B76]'>
+                    <div className="hidden md:hidden lg:hidden xl:block flex flex-col items-center justify-center">
+                        <div className=' absolute top-0 justify-center flex flex-col text-[#7B7B76]'>
                             <div className='text-start ml-5 md:w-1/2 '>
                                 <p className='font-[1rem]'>{p}</p>
                                 <h2 className="my-[20px] text-[1.875rem] font-semibold">
@@ -59,7 +59,7 @@ const Slider2 = ({ p, h2, p2, button, image1, image2, image4, image5, image6, ti
                             <div className='text-start ml-5  md:w-1/2'>
                                 <p className='font-[1rem]'>{p2} </p>
                                 <button type="button"
-                                    className="mt-[20px] border rounded-none border-black lowercase h-[50px] w-[300px] text-sm font-medium leading-normal text-black transition duration-150 ease-in-out hover:border-white hover:bg-black  hover:text-white focus:border-black  focus:outline-none focus:ring-0 active:bg-white active:border-white active:text-white flex items-center justify-between px-5"
+                                    className="mt-[20px] border rounded-none border-black lowercase h-[50px] w-[350px] text-sm font-medium leading-normal text-black transition duration-150 ease-in-out hover:border-white hover:bg-black  hover:text-white focus:border-black  focus:outline-none focus:ring-0 active:bg-white active:border-white active:text-white flex items-center justify-between px-5"
                                     data-te-ripple-init data-te-ripple-color="light">
                                     {button} <BsArrowRightShort className='text-xl'></BsArrowRightShort>
                                 </button>
@@ -68,10 +68,10 @@ const Slider2 = ({ p, h2, p2, button, image1, image2, image4, image5, image6, ti
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="w-full mb-3  flex flex-col items-center justify-center">
+                    <div className="mb-3  flex flex-col items-center justify-center">
                         <Image
                             src={image1}
-                            className="w-[300px] h-[200px]"
+                            className="w-[350px] h-[200px]"
                             alt="Image 1"
                             width={300}
                             height={200}
@@ -83,10 +83,10 @@ const Slider2 = ({ p, h2, p2, button, image1, image2, image4, image5, image6, ti
                     </div>
                 </SwiperSlide>
                 <SwiperSlide >
-                    <div className="w-full mb-3  flex flex-col items-center justify-center">
+                    <div className="mb-3  flex flex-col items-center justify-center">
                         <Image
                             src={image2}
-                            className="w-[300px] h-[200px]"
+                            className="w-[350px] h-[200px]"
                             alt="Image 1"
                             width={300}
                             height={200}
@@ -98,10 +98,10 @@ const Slider2 = ({ p, h2, p2, button, image1, image2, image4, image5, image6, ti
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="w-full mb-3  flex flex-col items-center justify-center">
+                    <div className="mb-3  flex flex-col items-center justify-center">
                         <Image
                             src={image4}
-                            className="w-[300px] h-[200px]"
+                            className="w-[350px] h-[200px]"
                             alt="Image 1"
                             width={300}
                             height={200}
@@ -113,10 +113,10 @@ const Slider2 = ({ p, h2, p2, button, image1, image2, image4, image5, image6, ti
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="w-full mb-3  flex flex-col items-center justify-center">
+                    <div className="mb-3  flex flex-col items-center justify-center">
                         <Image
                             src={image5}
-                            className="w-[300px] h-[200px]"
+                            className="w-[350px] h-[200px]"
                             alt="Image 1"
                             width={300}
                             height={200}
@@ -128,10 +128,10 @@ const Slider2 = ({ p, h2, p2, button, image1, image2, image4, image5, image6, ti
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <div className="w-full mb-3  flex flex-col items-center justify-center">
+                    <div className="mb-3  flex flex-col items-center justify-center">
                         <Image
                             src={image6}
-                            className="w-[300px] h-[200px]"
+                            className="w-[350px] h-[200px]"
                             alt="Image 1"
                             width={300}
                             height={200}

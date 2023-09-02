@@ -13,7 +13,7 @@ const TheAthenaeum = () => {
                 p2='In The Athenaeum, our digital reading room: a guide to ensuring a healthy complexion through the warmer months.'
                 button='Read more'
             ></Section2>
-            <div className='w-full mt-[50px] lg:mt-0 md:ml-16 pl-2 lg:ml-0'>
+            <div className='w-full mt-[50px] lg:mt-0  pl-2 lg:ml-0 grid justify-end'>
                 <Image
                 className=' lg:w-full lg:h-full'
                     src={subBanner1}

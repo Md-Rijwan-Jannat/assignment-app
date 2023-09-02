@@ -23,7 +23,7 @@ const StoreLocator = () => {
                 p2='Our consultants are available to host you in-store and provide tailored guidance on gift purchases. '
                 button='Find nearby shop'
             ></Section2>
-            <div className='w-full mt-[50px] lg:mt-0 md:ml-16 pl-2 lg:ml-0 grid justify-end'>
+            <div className='w-full mt-[50px] lg:mt-0 pl-2 lg:ml-0 grid justify-end'>
 
                 <Swiper
                     slidesPerView={1}
@@ -42,7 +42,7 @@ const StoreLocator = () => {
                     scrollbar={true}
                     navigation={true}
                     modules={[Keyboard, Scrollbar, Navigation, Pagination]}
-                    className="mySwiper lg:w-[500px] xl:w-[700px]"
+                    className="mySwiper w-[400px] lg:w-[500px] xl:w-[700px]"
                 >
                     <SwiperSlide >
                         <div className="w-full mb-3  flex flex-col items-center justify-center">
