@@ -23,36 +23,40 @@ const Header = () => {
 
     const divRef = useRef(null);
     const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
-  
+
     const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
-      const isScrollingDown = currentScrollPos > prevScrollPos;
-  
-      setPrevScrollPos(currentScrollPos);
-  
-      // Adjust the position, top, and width properties based on the scroll direction
-      if (isScrollingDown) {
-        divRef.current.style.position = 'fixed';
-        divRef.current.style.top = '0';
-        divRef.current.style.width = '100%'; // Full width
-      } else {
-        divRef.current.style.position = 'static';
-        divRef.current.style.width = 'auto'; // Reset width to default
-      }
+        const currentScrollPos = window.pageYOffset;
+        const isScrollingDown = currentScrollPos > prevScrollPos;
+
+        setPrevScrollPos(currentScrollPos);
+
+        // Adjust the position, top, and width properties based on the scroll direction
+        if (isScrollingDown) {
+            divRef.current.style.position = 'fixed';
+            divRef.current.style.top = '0';
+            divRef.current.style.width = '100%'; // Full width
+            divRef.current.style.backgroundColor = '#FDFCF0'; // Full width
+            divRef.current.style.color = 'black'; // Full width
+        } else {
+            divRef.current.style.position = 'static';
+            divRef.current.style.width = 'auto'; // Reset width to default
+        }
     };
-  
     useEffect(() => {
-      window.addEventListener('scroll', handleScroll);
-  
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
+        if (typeof window !== 'undefined') {
+            window.addEventListener('scroll', handleScroll);
+
+            return () => {
+                window.removeEventListener('scroll', handleScroll);
+            };
+        }
     }, []);
-  
+
+
     return (
-        <nav 
-      className="bg-white shadow dark:bg-gray-800">
-            <div   ref={divRef}  className="px-6 py-4 mx-auto">
+        <nav
+            className="bg-transparent shadow dark:bg-gray-800">
+            <div ref={divRef} className="px-6 py-4 mx-auto ">
                 <div className="lg:flex lg:items-center">
                     <div className="flex items-center justify-between">
                         <div className="flex gap-5">
@@ -114,11 +118,11 @@ const Header = () => {
                         <div
                             className="flex items-center gap-4">
                             <div className="flex items-center gap-4">
-                                <BsSearch className=" md:hidden lg:hidden xl:hidden5 text-[#333333] dark:text-gray-300"></BsSearch>
-                                <AiOutlineHeart className="md:hidden lg:hidden xl:hidden text-[#333333] dark:text-gray-300"></AiOutlineHeart>
+                                <BsSearch className=" md:hidden lg:hidden xl:hidden5 text-black dark:text-gray-300"></BsSearch>
+                                <AiOutlineHeart className="md:hidden lg:hidden xl:hidden text-black dark:text-gray-300"></AiOutlineHeart>
                                 <Link
                                     href="#"
-                                    className="md:hidden lg:hidden xl:hidden transition-colors duration-300 transform lg:mt-0 hover:text-gray-900 text-[12px] xl:text-[13px] font-semibold dark:hover:text-gray-700"
+                                    className="md:hidden lg:hidden text-black xl:hidden transition-colors duration-300 transform lg:mt-0 hover:text-gray-900 text-[12px] xl:text-[13px] font-semibold dark:hover:text-gray-700"
                                 >
                                     Cart
                                 </Link>
@@ -126,7 +130,7 @@ const Header = () => {
                             <HiMenuAlt4
                                 onClick={openModal}
                                 type="button"
-                                className="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400 md:hidden"
+                                className="text-black dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400 md:hidden"
                                 aria-label="toggle menu"
                             ></HiMenuAlt4>
                             {isModalOpen && (
@@ -135,7 +139,7 @@ const Header = () => {
                                 >
                                     <div className="relative w-full">
                                         {/* Modal content */}
-                                        <div className="relative bg-[#FDFCF0] shadow dark:bg-gray-700">
+                                        <div className="relative bg-[#FDFCF0] bg-opacity-0 shadow dark:bg-gray-700">
                                             {/* Modal header */}
                                             <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                                                 <div className="flex items-center justify-between w-full">
@@ -167,11 +171,11 @@ const Header = () => {
                                                         </svg>
                                                     </Link>
                                                     <div className="flex items-center gap-4">
-                                                        <BsSearch className=" md:hidden lg:hidden xl:hidden5 text-[#333333] dark:text-gray-300"></BsSearch>
-                                                        <AiOutlineHeart className="md:hidden lg:hidden xl:hidden text-[#333333] dark:text-gray-300"></AiOutlineHeart>
+                                                        <BsSearch className=" md:hidden lg:hidden xl:hidden5 text-black dark:text-gray-300"></BsSearch>
+                                                        <AiOutlineHeart className="md:hidden lg:hidden xl:hidden text-black dark:text-gray-300"></AiOutlineHeart>
                                                         <Link
                                                             href="#"
-                                                            className="md:hidden lg:hidden xl:hidden transition-colors duration-300 transform lg:mt-0 hover:text-gray-900 text-[12px] xl:text-[13px] font-semibold dark:hover:text-gray-700"
+                                                            className="md:hidden lg:hidden text-black xl:hidden transition-colors duration-300 transform lg:mt-0 hover:text-gray-900 text-[12px] xl:text-[13px] font-semibold dark:hover:text-gray-700"
                                                         >
                                                             Cart
                                                         </Link>
@@ -182,7 +186,7 @@ const Header = () => {
                                                     type="button"
                                                     className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white pl-2"
                                                 >
-                                                    <BsX className="text-2xl"></BsX>
+                                                    <BsX className="text-2xl text-black"></BsX>
                                                 </button>
                                             </div>
                                             <ul className="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
@@ -277,7 +281,7 @@ const Header = () => {
                                                 <li>
                                                     <Link
                                                         href="#"
-                                                        className="mt-2 transition-colors duration-300 transform lg:mt-0 hover:text-gray-900 text-[12px] xl:text-[13px] font-semibold dark:hover:text-gray-700"
+                                                        className="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover-bg-transparent dark:border-gray-700"
                                                     >
                                                         Screen Care
                                                     </Link>
@@ -285,7 +289,7 @@ const Header = () => {
                                                 <li>
                                                     <Link
                                                         href="#"
-                                                        className="mt-2 transition-colors duration-300 transform lg:mt-0 hover:text-gray-900 text-[12px] xl:text-[13px] font-semibold dark:hover:text-gray-700"
+                                                        className="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover-bg-transparent dark:border-gray-700"
                                                     >
                                                         Meat
                                                     </Link>
@@ -293,7 +297,7 @@ const Header = () => {
                                                 <li>
                                                     <Link
                                                         href="#"
-                                                        className="mt-2 transition-colors duration-300 transform lg:mt-0 hover:text-gray-900 text-[12px] xl:text-[13px] font-semibold dark:hover:text-gray-700"
+                                                        className="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover-bg-transparent dark:border-gray-700"
                                                     >
 
                                                         Store
@@ -302,7 +306,7 @@ const Header = () => {
                                                 <li>
                                                     <Link
                                                         href="#"
-                                                        className="mt-2 transition-colors duration-300 transform lg:mt-0 hover:text-gray-900 text-[12px] xl:text-[13px] font-semibold dark:hover:text-gray-700"
+                                                        className="flex items-center justify-between w-full py-2 pl-3 pr-4 font-medium text-gray-900 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover-bg-transparent dark:border-gray-700"
                                                     >
                                                         Facial Appointments
                                                     </Link>
@@ -346,7 +350,7 @@ const Header = () => {
                         </div>
                     </div>
 
-                    <div 
+                    <div
                         className={`hidden xl:block flex-1 w-full px-5 md:px-8 py-4 transition-all duration-300 ease-in-out bg-[#FDFCF0] bg-opacity-100 dark:bg-gray-800 lg:mt-0 lg:p-0 top-0 lg:relative bg-transparent lg:w-auto opacity-100 lg:translate-x-0 lg:flex items-center lg:justify-between `}
                     >
                         <div className="lg:flex lg:flex-row lg:items-center lg:justify-between xl:pl-10">
