@@ -143,7 +143,7 @@ const Header = () => {
                                 >
                                     <div className="relative w-full">
                                         {/* Modal content */}
-                                        <div className="relative bg-[#FDFCF0] bg-opacity-0 shadow dark:bg-gray-700">
+                                        <div className="relative bg-[#FDFCF0] shadow dark:bg-gray-700">
                                             {/* Modal header */}
                                             <div className="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
                                                 <div className="flex items-center justify-between w-full">
