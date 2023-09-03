@@ -22,26 +22,29 @@ const Header = () => {
     };
 
     const divRef = useRef(null);
-    const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
+    const [prevScrollPos, setPrevScrollPos] = useState(0);
 
     const handleScroll = () => {
-        const currentScrollPos = window.pageYOffset;
-        const isScrollingDown = currentScrollPos > prevScrollPos;
+        if (typeof window !== 'undefined') {
+            const currentScrollPos = window.pageYOffset;
+            const isScrollingDown = currentScrollPos > prevScrollPos;
 
-        setPrevScrollPos(currentScrollPos);
+            setPrevScrollPos(currentScrollPos);
 
-        // Adjust the position, top, and width properties based on the scroll direction
-        if (isScrollingDown) {
-            divRef.current.style.position = 'fixed';
-            divRef.current.style.top = '0';
-            divRef.current.style.width = '100%'; // Full width
-            divRef.current.style.backgroundColor = '#FDFCF0'; // Full width
-            divRef.current.style.color = 'black'; // Full width
-        } else {
-            divRef.current.style.position = 'static';
-            divRef.current.style.width = 'auto'; // Reset width to default
+            // Adjust the position, top, and width properties based on the scroll direction
+            if (isScrollingDown) {
+                divRef.current.style.position = 'fixed';
+                divRef.current.style.top = '0';
+                divRef.current.style.width = '100%'; // Full width
+                divRef.current.style.backgroundColor = '#FDFCF0'; // Full width
+                divRef.current.style.color = 'black'; // Full width
+            } else {
+                divRef.current.style.position = 'static';
+                divRef.current.style.width = 'auto'; // Reset width to default
+            }
         }
     };
+
     useEffect(() => {
         if (typeof window !== 'undefined') {
             window.addEventListener('scroll', handleScroll);
@@ -51,6 +54,7 @@ const Header = () => {
             };
         }
     }, []);
+
 
 
     return (
@@ -476,6 +480,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
-
