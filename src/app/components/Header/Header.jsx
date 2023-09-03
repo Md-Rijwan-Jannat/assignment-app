@@ -2,7 +2,7 @@
 'use client'
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BsSearch, BsX } from "react-icons/bs";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { } from "react-icons/hi";
@@ -21,9 +21,38 @@ const Header = () => {
         setIsModalOpen(false);
     };
 
+    const divRef = useRef(null);
+    const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
+  
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      const isScrollingDown = currentScrollPos > prevScrollPos;
+  
+      setPrevScrollPos(currentScrollPos);
+  
+      // Adjust the position, top, and width properties based on the scroll direction
+      if (isScrollingDown) {
+        divRef.current.style.position = 'fixed';
+        divRef.current.style.top = '0';
+        divRef.current.style.width = '100%'; // Full width
+      } else {
+        divRef.current.style.position = 'static';
+        divRef.current.style.width = 'auto'; // Reset width to default
+      }
+    };
+  
+    useEffect(() => {
+      window.addEventListener('scroll', handleScroll);
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
+  
     return (
-        <nav className="bg-white shadow dark:bg-gray-800">
-            <div className="px-6 py-4 mx-auto">
+        <nav 
+      className="bg-white shadow dark:bg-gray-800">
+            <div   ref={divRef}  className="px-6 py-4 mx-auto">
                 <div className="lg:flex lg:items-center">
                     <div className="flex items-center justify-between">
                         <div className="flex gap-5">
@@ -82,7 +111,8 @@ const Header = () => {
                             </ul>
                         </div>
 
-                        <div className="flex items-center gap-4">
+                        <div
+                            className="flex items-center gap-4">
                             <div className="flex items-center gap-4">
                                 <BsSearch className=" md:hidden lg:hidden xl:hidden5 text-[#333333] dark:text-gray-300"></BsSearch>
                                 <AiOutlineHeart className="md:hidden lg:hidden xl:hidden text-[#333333] dark:text-gray-300"></AiOutlineHeart>
@@ -244,10 +274,6 @@ const Header = () => {
                                                         {/* Dropdown content */}
                                                     </div>
                                                 </li>
-
-                                                <li>
-                                                    <BsSearch className="w-3 xl:w-5 xl:h-5 text-[#333333] dark:text-gray-300"></BsSearch>
-                                                </li>
                                                 <li>
                                                     <Link
                                                         href="#"
@@ -269,7 +295,7 @@ const Header = () => {
                                                         href="#"
                                                         className="mt-2 transition-colors duration-300 transform lg:mt-0 hover:text-gray-900 text-[12px] xl:text-[13px] font-semibold dark:hover:text-gray-700"
                                                     >
-                                                        
+
                                                         Store
                                                     </Link>
                                                 </li>
@@ -320,11 +346,11 @@ const Header = () => {
                         </div>
                     </div>
 
-                    <div
-                        className={`hidden xl:block absolute inset-x-0 z-20 flex-1 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex items-center  lg:justify-between mx-10`}
+                    <div 
+                        className={`hidden xl:block flex-1 w-full px-5 md:px-8 py-4 transition-all duration-300 ease-in-out bg-[#FDFCF0] bg-opacity-100 dark:bg-gray-800 lg:mt-0 lg:p-0 top-0 lg:relative bg-transparent lg:w-auto opacity-100 lg:translate-x-0 lg:flex items-center lg:justify-between `}
                     >
-                        <div className="lg:flex lg:flex-row lg:items-center justify-between lg:pl-10">
-                            <ul className="flex flex-col text-[#333333] capitalize dark:text-gray-300 lg:flex lg:-mx-20 lg:flex-row lg:items-center gap-4 xl:gap-4 font-medium">
+                        <div className="lg:flex lg:flex-row lg:items-center lg:justify-between xl:pl-10">
+                            <ul className="flex flex-col text-[#333333] dark:text-gray-300 lg:flex lg:flex-row lg:items-center gap-4 xl:gap-4 font-medium">
 
                                 <li>
                                     <Link
@@ -411,11 +437,11 @@ const Header = () => {
                                 </li>
                             </ul>
 
-                            <ul className="flex flex-col text-[#333333] capitalize dark:text-gray-300 lg:flex lg:-mx-4 lg:flex-row lg:items-center gap-7 font-medium">
+                            <ul className="flex flex-col text-[#333333] capitalize dark:text-gray-300 lg:flex lg:flex-row lg:items-center gap-3 xl:gap-4 font-medium">
                                 <li>
                                     <Link
                                         href="#"
-                                        className="mt-2 transition-colors duration-300 transform lg:mt-0 hover:text-gray-900 text-[12px] xl:text-[13px] font-semibold dark:hover:text-gray-700"
+                                        className="ml-10 mt-2 transition-colors duration-300 transform lg:mt-0 hover:text-gray-900 text-[12px] xl:text-[13px] font-semibold dark:hover:text-gray-700"
                                     >
                                         Log in
                                     </Link>
@@ -446,5 +472,6 @@ const Header = () => {
 };
 
 export default Header;
+
 
 
